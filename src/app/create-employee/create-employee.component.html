@@ -1,0 +1,199 @@
+<div class="col-md-8 offset-md-3">
+  <h2>Create Employee</h2>
+  <form #employeeForm="ngForm" (ngSubmit)="OnSubmit()" novalidate>
+
+    <!-- Full Name -->
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input
+        id="fullName"
+        type="text"
+        placeholder="Enter Your Full Name"
+        [(ngModel)]="employee.fullName"
+        class="form-control"
+        name="fullName"
+        required
+        #fullName="ngModel"
+      />
+      <div *ngIf="fullName.invalid && fullName.touched" class="text-danger">
+        Full Name is required.
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input
+        id="address"
+        type="text"
+        placeholder="Enter Your Address"
+        [(ngModel)]="employee.address"
+        class="form-control"
+        name="address"
+        required
+        #address="ngModel"
+      />
+      <div *ngIf="address.invalid && address.touched" class="text-danger">
+        Address is required.
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        placeholder="Enter Your Valid Email"
+        [(ngModel)]="employee.email"
+        class="form-control"
+        name="email"
+        required
+        email
+        #email="ngModel"
+      />
+      <div *ngIf="email.invalid && email.touched" class="text-danger">
+        A valid Email is required.
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="form-group">
+      <label>Contact Number</label>
+      <input
+        id="number"
+        placeholder="Enter your Contact Number"
+        type="number"
+        [(ngModel)]="employee.contact"
+        class="form-control"
+        name="contact"
+        required
+        #contact="ngModel"
+      />
+      <div *ngIf="contact.invalid && contact.touched" class="text-danger">
+        Contact Number is required.
+      </div>
+    </div>
+
+    <!-- Designation -->
+    <div class="form-group">
+      <label>Designation</label>
+      <input
+        id="designation"
+        placeholder="Enter your designation"
+        type="text"
+        [(ngModel)]="employee.designation"
+        class="form-control"
+        name="designation"
+        required
+        #designation="ngModel"
+      />
+      <div *ngIf="designation.invalid && designation.touched" class="text-danger">
+        Designation is required.
+      </div>
+    </div>
+
+    <!-- Department -->
+    <div class="form-group">
+      <label>Department</label>
+      <input
+        id="department"
+        placeholder="Enter your department"
+        type="text"
+        [(ngModel)]="employee.department"
+        class="form-control"
+        name="department"
+        required
+        #department="ngModel"
+      />
+      <div *ngIf="department.invalid && department.touched" class="text-danger">
+        Department is required.
+      </div>
+    </div>
+
+    <!-- Joining Date -->
+    <div class="form-group">
+      <label for="joiningDate">Joining Date</label>
+      <input
+        id="joiningDate"
+        placeholder="Pick Joining Date"
+        type="date"
+        [(ngModel)]="employee.joiningDate"
+        class="form-control"
+        name="joiningDate"
+        required
+        #joiningDate="ngModel"
+      />
+      <div *ngIf="joiningDate.invalid && joiningDate.touched" class="text-danger">
+        Joining Date is required.
+      </div>
+    </div>
+
+    <!-- Salary -->
+    <div class="form-group">
+      <label for="salary">Salary:</label>
+      <input
+        type="number"
+        id="salary"
+        class="form-control"
+        name="salary"
+        [(ngModel)]="employee.salary"
+        required
+        #salary="ngModel"
+      />
+      <div *ngIf="salary.invalid && salary.touched" class="text-danger">
+        Salary is required.
+      </div>
+    </div>
+
+    <!-- Disability Radio -->
+    <div class="form-group">
+      <label for="disability">Has Disability:</label><br />
+
+      <!-- YES -->
+      <label>
+        <input
+          type="radio"
+          name="disability"
+          [value]="'Yes'"
+          [(ngModel)]="employee.disability"
+          (change)="onDisabilityChange()"
+          required
+        />
+        Yes
+      </label>
+
+      <!-- NO -->
+      <label class="ml-3">
+        <input
+          type="radio"
+          name="disability"
+          [value]="'No'"
+          [(ngModel)]="employee.disability"
+          (change)="onDisabilityChange()"
+        />
+        No
+      </label>
+
+      <!-- Error on group -->
+      <div *ngIf="!employee.disability && employeeForm.submitted" class="text-danger">
+        Please select an option.
+      </div>
+      <div class="form-group" *ngIf="employee.disability === 'Yes'">
+        <label for="type-disability">Type of Disability</label>
+        <input
+          type="text"
+          class="form-control"
+          id="type-disability"
+          name="typeOfDisability"
+          [(ngModel)]="employee.typeOfDisability"
+          required
+          #typeOfDisability="ngModel"
+        />
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button [disabled]="!employeeForm.valid" class="btn btn-success mt-4">Submit</button>
+  </form>
+</div>
