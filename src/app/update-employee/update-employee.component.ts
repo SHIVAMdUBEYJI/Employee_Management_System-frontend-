@@ -15,7 +15,6 @@ employee:Employee =new Employee();
 constructor(private employeeService:EmployeeService,private route:ActivatedRoute,private router:Router){}
 
 
-
 ngOnInit(): void {
   this.id=this.route.snapshot.params['id'];
   this.employeeService.employeeFindById(this.id).subscribe(data =>{
@@ -32,7 +31,7 @@ this.gotoEmployeeList();
 )
 
   }
-
+  navigationByEmployeeList(){};
   gotoEmployeeList(){
     this.router.navigate(['/employee-list'])
   }

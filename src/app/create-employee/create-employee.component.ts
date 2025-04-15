@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 
@@ -8,13 +8,19 @@ import { EmployeeService } from '../employee.service';
   templateUrl: './create-employee.component.html',
   styleUrls: ['./create-employee.component.css']
 })
-export class CreateEmployeeComponent {
+export class CreateEmployeeComponent implements OnInit{
   employee: Employee = new Employee();
+  id!: number;
 
   constructor(
     private employeeService: EmployeeService,
-    private router: Router
+    private router: Router, private route:ActivatedRoute
   ) {}
+
+
+  ngOnInit(): void {
+    this.id=this.route.snapshot.params['id'];
+  }
 
   onDisabilityChange() {
     console.log('Disability changed to:', this.employee.disability);
@@ -48,10 +54,21 @@ export class CreateEmployeeComponent {
     console.log('Type of Disability:', this.employee.typeOfDisability);
     this.addEmployee();
     alert('Successfully created!');
-  }
 
+  }
 
   gotoEmployeeList() {
     this.router.navigate(['employee-list']);
   }
+  // OnSubmit1() {
+  //   this.employeeService.updateEmployee(this.id,this.employee).subscribe(data=>{
+  //     // this.employee.sort((a, b) => a.id - b.id);
+  //     alert("Successfully Updated !!");
+  //   this.gotoEmployeeList();
+  //   }
+  //   ,error=>console.log(error)
+  //   )
+
+  //     }
+
 }

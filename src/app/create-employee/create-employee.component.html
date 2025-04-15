@@ -2,7 +2,7 @@
   <h2>Create Employee</h2>
   <form #employeeForm="ngForm" (ngSubmit)="OnSubmit()" novalidate>
 
-    <!-- Full Name -->
+
     <div class="form-group">
       <label for="fullName">Full Name</label>
       <input
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <!-- Address -->
+
     <div class="form-group">
       <label for="address">Address</label>
       <input
@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <!-- Email -->
+
     <div class="form-group">
       <label for="email">Email</label>
       <input
@@ -57,7 +57,7 @@
       </div>
     </div>
 
-    <!-- Contact -->
+
     <div class="form-group">
       <label>Contact Number</label>
       <input
@@ -75,7 +75,7 @@
       </div>
     </div>
 
-    <!-- Designation -->
+
     <div class="form-group">
       <label>Designation</label>
       <input
@@ -93,7 +93,7 @@
       </div>
     </div>
 
-    <!-- Department -->
+
     <div class="form-group">
       <label>Department</label>
       <input
@@ -111,7 +111,7 @@
       </div>
     </div>
 
-    <!-- Joining Date -->
+
     <div class="form-group">
       <label for="joiningDate">Joining Date</label>
       <input
@@ -129,7 +129,7 @@
       </div>
     </div>
 
-    <!-- Salary -->
+
     <div class="form-group">
       <label for="salary">Salary:</label>
       <input
@@ -146,7 +146,7 @@
       </div>
     </div>
 
-    <!-- Disability Radio -->
+   
     <div class="form-group">
       <label for="disability">Has Disability:</label><br />
 
@@ -195,5 +195,6 @@
 
     <!-- Submit Button -->
     <button [disabled]="!employeeForm.valid" class="btn btn-success mt-4">Submit</button>
+
   </form>
 </div>

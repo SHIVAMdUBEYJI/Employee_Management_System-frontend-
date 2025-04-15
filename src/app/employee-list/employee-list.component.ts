@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
-  styleUrl: './employee-list.component.css'
+  styleUrl: './employee-list.component.css',
 })
 export class EmployeeListComponent implements OnInit {
-
-
-
-
   // employeeDetails(employee: Employee) {
   //   this.employeeService.employeeFindById(employee.id?).subscribe(
   //     (data) => {
@@ -24,31 +20,32 @@ export class EmployeeListComponent implements OnInit {
   //   );
   // }
 
+  searchedEmployee: Employee[] | null = null;
 
-
-  employees:Employee[]=[];
+  employees: Employee[] = [];
   currentPage: number = 0;
   totalPages: number = 0;
 
-  constructor(private employeeService: EmployeeService,private router:Router) {}
+  constructor(
+    private employeeService: EmployeeService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   getEmployees(page: number = 0): void {
-    this.employeeService.getAllEmployees(page).subscribe(response => {
+    this.employeeService.getAllEmployees(page).subscribe((response) => {
       this.employees = response.content;
       this.totalPages = response.totalPages;
       this.currentPage = response.number;
-      
-
     });
   }
 
-
-  updateEmployee(id: number|undefined) {
-this.router.navigate(['update-employee' ,id])
+  updateEmployee(id: number | undefined) {
+    this.router.navigate(['update-employee',id]);
   }
 
-  deleteEmployee(id: number ): void {
-    if (confirm("Are you sure you want to delete this employee?")) {
+  deleteEmployee(id: number): void {
+    if (confirm('Are you sure you want to delete this employee?')) {
       this.employeeService.deleteEmployee(id).subscribe({
         next: (response) => {
           alert('Employee deleted successfully.');
@@ -75,7 +72,26 @@ this.router.navigate(['update-employee' ,id])
   }
 
   ngOnInit(): void {
-    this.getEmployees();
+    this.route.queryParams.subscribe((params) => {
+      const fullName = params['fullName'];
+      if (fullName) {
+        this.searchEmployeeByName(fullName); // '+' to convert to number
+      } else {
+        this.getEmployees();
+      }
+    });
   }
 
+  searchEmployeeByName(fullName: string): void {
+    this.employeeService.searchEmployeesByName(fullName).subscribe({
+      next: (data) => {
+        this.searchedEmployee = data;
+        this.employees = data; // override list with searched result
+      },
+      error: (err) => {
+        console.error('Employee not found', err);
+        this.employees = []; // show no result
+      },
+    });
+  }
 }
