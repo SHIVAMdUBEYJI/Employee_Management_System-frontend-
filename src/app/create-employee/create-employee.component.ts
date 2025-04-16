@@ -30,7 +30,6 @@ export class CreateEmployeeComponent implements OnInit{
     }
   }
 
-
   addEmployee() {
     // Just an extra safeguard
     if (this.employee.disability !== 'Yes') {

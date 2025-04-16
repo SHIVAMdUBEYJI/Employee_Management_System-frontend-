@@ -1,61 +1,58 @@
-.container {
-  background-image: url("https://res.cloudinary.com/dduwkdctl/image/upload/v1673931280/Kanban%20Project/wave_oawig5.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+/* app.component.css */
+:host {
+  display: block;
   min-height: 100vh;
-  padding-bottom: 50px;
+  background: linear-gradient(to right, #e3f2fd, #ffffff);
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  padding-bottom: 60px;
 }
 
 .mat-toolbar {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  background-color: #1976d2; /* Material Blue */
+  color: white;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-right: 20px;
+.page-title {
+  text-align: center;
+  background-color: #d32f2f; /* Material Red */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+  background-color: #eeeeee;
+  color: #616161;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 14px;
+  text-align: center;
 }
 
 .search-form {
+
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .search-field {
+  margin-top: 2px;
   width: 250px;
 }
 
 .spacer {
   flex: 1 1 auto;
-}
-
-.page-title {
-  text-align: center;
-  background-color: #d32f2f;
-  color: white;
-  padding: 10px;
-  border-radius: 8px;
-  margin-top: 20px;
-}
-
-.main-view {
-  padding: 20px;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  justify-content: center;
-}
-
-.footer-text {
-  color: #f1f1f1;
-  font-size: 14px;
 }
 
 .active-link {
