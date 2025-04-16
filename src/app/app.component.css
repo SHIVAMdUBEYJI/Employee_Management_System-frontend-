@@ -1,10 +1,64 @@
-.container{
-    background-image: url("https://res.cloudinary.com/dduwkdctl/image/upload/v1673931280/Kanban%20Project/wave_oawig5.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    padding: 20px;
-    border-radius: 10px;
-  }
+.container {
+  background-image: url("https://res.cloudinary.com/dduwkdctl/image/upload/v1673931280/Kanban%20Project/wave_oawig5.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
 
+.mat-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-field {
+  width: 250px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.page-title {
+  text-align: center;
+  background-color: #d32f2f;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.main-view {
+  padding: 20px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+}
+
+.footer-text {
+  color: #f1f1f1;
+  font-size: 14px;
+}
+
+.active-link {
+  font-weight: bold;
+  text-decoration: underline;
+}

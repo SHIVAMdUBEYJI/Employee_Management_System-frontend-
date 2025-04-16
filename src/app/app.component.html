@@ -1,54 +1,39 @@
 <div class="container">
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary px-3">
-  <a class="navbar-brand" href="#">Employee Portal</a>
+  <mat-toolbar color="primary" class="mat-elevation-z4">
+    <span class="logo">Employee Portal</span>
 
-  <form class="d-flex me-auto ms-3" (submit)="onSearch()">
-    <input
-      class="form-control me-2"
-      type="search"
-      name="search"
-      placeholder="Search by fullName  "
-      aria-label="Search"
-      [(ngModel)]="searchQuery"
-      fullName="search"
-      required
-    />
-    <button class="btn btn-outline-light" type="submit">Search</button>
-  </form>
+    <form class="search-form" (submit)="onSearch()">
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Search by Full Name</mat-label>
+        <input matInput id="Search" placeholder="Search By fullName" type="search" [(ngModel)]="searchQuery" name="search" required />
+      </mat-form-field>
+      <button mat-icon-button color="accent" type="submit">
+        <mat-icon>search</mat-icon>
+      </button>
+    </form>
 
-  <ul class="navbar-nav ms-auto">
-    <li class="nav-item">
-      <a
-      routerLink="employee-list"
-      routerLinkActive="active"
-        class="nav-link"
-      >
-        Employee List
-      </a>
-    </li>
-    <li class="nav-item">
-      <a
-        routerLink="create-employee"
-        routerLinkActive="active"
-        class="nav-link"
-      >
-        create-employee
-      </a>
-    </li>
-  </ul>
-</nav>
+    <span class="spacer"></span>
 
-<div class="container my-4">
-  <h1 class="text-center bg-danger text-white p-2 rounded mt-0">{{ title }}</h1>
-</div>
+    <button mat-button routerLink="employee-list" routerLinkActive="active-link">
+      <mat-icon>list</mat-icon>
+      Employee List
+    </button>
 
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+    <button mat-button routerLink="create-employee" routerLinkActive="active-link">
+      <mat-icon>person_add</mat-icon>
+      Create Employee
+    </button>
+  </mat-toolbar>
 
-<footer class="footer bg-light text-center py-3 mt-5 border-top mb-0">
-  <div class="container">
-    <span class="text-muted">All Rights Reserved © Sileo Pvt.Ltd 2025</span>
+  <div class="content my-4">
+    <h1 class="page-title mat-elevation-z2">{{ title }}</h1>
   </div>
-</footer>
+
+  <div class="main-view">
+    <router-outlet></router-outlet>
+  </div>
+
+  <mat-toolbar class="footer" color="primary">
+    <span class="footer-text">All Rights Reserved © Sileo Pvt.Ltd 2025</span>
+  </mat-toolbar>
 </div>

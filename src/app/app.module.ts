@@ -16,7 +16,8 @@ import { CreateEmployeeComponent } from './create-employee/create-employee.compo
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon'
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,11 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
     MatNativeDateModule,
     MatButtonModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    MatIconModule
+
+
 
   ],
   providers: [

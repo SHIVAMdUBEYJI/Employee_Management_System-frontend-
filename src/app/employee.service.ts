@@ -8,7 +8,7 @@ import { Employeeresponse } from './employeeresponse';
   providedIn: 'root',
 })
 export class EmployeeService {
-  private baseUrl = 'https://employee-management-system-backend-iwln.onrender.com/api/v1';
+  private baseUrl = 'http://localhost:8080/api/v1';
 
   constructor(private httpClient: HttpClient) {}
 

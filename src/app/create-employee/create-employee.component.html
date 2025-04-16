@@ -4,8 +4,9 @@
 
 
     <div class="form-group">
-      <label for="fullName">Full Name</label>
+      <mat-label for="fullName">Full Name</mat-label>
       <input
+      matInput
         id="fullName"
         type="text"
         placeholder="Enter Your Full Name"
@@ -22,8 +23,9 @@
 
 
     <div class="form-group">
-      <label for="address">Address</label>
+      <mat-label for="address">Address</mat-label>
       <input
+      matInput
         id="address"
         type="text"
         placeholder="Enter Your Address"
@@ -40,8 +42,9 @@
 
 
     <div class="form-group">
-      <label for="email">Email</label>
+      <mat-label for="email">Email</mat-label>
       <input
+      matInput
         id="email"
         type="email"
         placeholder="Enter Your Valid Email"
@@ -59,8 +62,9 @@
 
 
     <div class="form-group">
-      <label>Contact Number</label>
+      <mat-label>Contact Number</mat-label>
       <input
+      matInput
         id="number"
         placeholder="Enter your Contact Number"
         type="number"
@@ -77,8 +81,9 @@
 
 
     <div class="form-group">
-      <label>Designation</label>
+      <mat-label>Designation</mat-label>
       <input
+      matInput
         id="designation"
         placeholder="Enter your designation"
         type="text"
@@ -95,8 +100,9 @@
 
 
     <div class="form-group">
-      <label>Department</label>
+      <mat-label>Department</mat-label>
       <input
+      matInput
         id="department"
         placeholder="Enter your department"
         type="text"
@@ -113,8 +119,9 @@
 
 
     <div class="form-group">
-      <label for="joiningDate">Joining Date</label>
+      <mat-label for="joiningDate">Joining Date</mat-label>
       <input
+      matInput
         id="joiningDate"
         placeholder="Pick Joining Date"
         type="date"
@@ -131,8 +138,10 @@
 
 
     <div class="form-group">
-      <label for="salary">Salary:</label>
+      <mat-label for="salary">Salary:</mat-label>
       <input
+      matInput
+      placeholder="Enter salary "
         type="number"
         id="salary"
         class="form-control"
@@ -146,11 +155,11 @@
       </div>
     </div>
 
-   
-    <div class="form-group">
-      <label for="disability">Has Disability:</label><br />
 
-      <!-- YES -->
+    <div class="form-group">
+      <mat-label for="disability">Has Disability:</mat-label><br />
+
+
       <label>
         <input
           type="radio"
@@ -163,7 +172,7 @@
         Yes
       </label>
 
-      <!-- NO -->
+
       <label class="ml-3">
         <input
           type="radio"
@@ -175,7 +184,7 @@
         No
       </label>
 
-      <!-- Error on group -->
+
       <div *ngIf="!employee.disability && employeeForm.submitted" class="text-danger">
         Please select an option.
       </div>
